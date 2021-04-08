@@ -2,6 +2,8 @@ import React,{Component}from 'react';
 import axios from 'axios';
 // const apiKey="acace3393ded528905dd2a68775695f1";
 // const apiUrl="api.openweathermap.org/data/2.5";
+import './styles/_style.scss';
+// import image from './assests/british.jpg'
 
 
 class App extends Component {
@@ -42,13 +44,14 @@ class App extends Component {
     console.log(this.state.description);
   
     return (
-      <div>
-        {this.state.city}
-        {this.state.country}
-        {this.state.celsius}
-        {this.state.temp_max}
-        {this.state.temp_min}
-        {this.state.description}
+      <div className="container">
+       
+       <p className="container__heading">{this.state.city}</p> 
+        <p className="container__country"> Country: {this.state.country}</p>
+       <p className="container__country"> Temp: {this.state.celsius} deg</p><br/>
+        <p className="container__temp1">{this.state.description}</p>
+        <span className="container__temp">Max-temp:{this.state.temp_max}deg</span>
+        <span className="container__temp">Min-temp{this.state.temp_min}deg</span><br/>
       </div>
         
          
