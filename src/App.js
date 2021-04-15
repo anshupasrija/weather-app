@@ -14,6 +14,7 @@ class App extends Component {
     temp_max:'',
     temp_min:'',
     description:'',
+    newCity:'',
   };
  
   calCelsius(temp){
@@ -21,20 +22,17 @@ class App extends Component {
     return cell;
   }
   handleFormSubmit=(event)=>{
-    event.preventDefault();
+    event.preventDefault();  
+   this.setState({ newCity: this.state.city});  
     this.getData(this.state.city);
   }
+
   handleCityChange=(event)=>{
     this.setState({
      city:event.target.value,
     });
   };
-  handleCountryChange=(event)=>{
-    this.setState({
-     country: event.target.value,
-    });
-  };
-  
+    
 
   getData=(city)=>{
 
@@ -55,18 +53,20 @@ class App extends Component {
   }
 
   render(){  
-   
-    console.log(this.state.icon);
+    
     return (
       <div className="container">   
         <div className="container__subcontainer">
           <input className="container__input"
             type="text"
             placeholder="City"
-            onChange={this.handleCityChange} />
+            // value={this.state.value}
+            onChange={this.handleCityChange} 
+            />
           <button className="container__button" onClick={this.handleFormSubmit}>Get Weather</button>
         </div>
-         <p className="container__heading">{this.state.city}</p>
+
+         <p className="container__heading">{this.state.newCity}</p>
          <p className="container__country">{this.state.country}</p>
          <p className="container__country"> {this.state.celsius} deg</p><br />
         <div className="container__subcontainer">
@@ -74,10 +74,9 @@ class App extends Component {
           <p className="container__temp">L:{this.state.temp_min}deg</p><br /></div>
         <div className="container__subcontainer">
           <img className="container__icon" src={`https://api.openweathermap.org/img/w/${this.state.icon}.png`} alt="" />
-          <p className="container__temp1">{this.state.description}</p>
-        </div>
-      </div>
-        
+          <p className="container__temp1">{this.state.description}</p> 
+         </div>    
+      </div>       
          
     )   
 

@@ -71,11 +71,25 @@ body {
       width:6rem;
       height:2rem;
       margin-top:3rem;
-      box-shadow: 5px 10px 20px;
-
+      box-shadow: 5px 10px 20px black;
+      background-color:rgb(180, 138, 132);
+      color:white;
+    }
+    &__icon{
+      
+      animation:iconanimation 3s infinite;
+  
     }
   
  
+  }
+  @keyframes iconanimation{
+    from{
+      transform: scale(0.5,0.5);
+    }
+    to{
+      transform:scale(1,1)
+    }
   }
 
 
